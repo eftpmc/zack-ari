@@ -31,3 +31,28 @@ body {
     text-wrap: balance;
   }
 }
+
+html {
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+@font-face {
+  font-family: 'Noord Regular';
+  src: url('/Noord-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Square Chunks';
+  src: url('/Square-Chunks.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Urban Starblues';
+  src: url('/Urban-Starblues.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

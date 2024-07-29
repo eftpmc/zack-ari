@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        starblues: ["Urban Starblues", "san-serif"],
+        squarechunks: ["Square Chunks", "san-serif"],
+        noord: ['Noord Regular', 'sans-serif'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -15,6 +20,13 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
+  daisyui: {
+    themes: [
+      'light', 'dark', 'coffee',
+    ],
+  },
 };
 export default config;
