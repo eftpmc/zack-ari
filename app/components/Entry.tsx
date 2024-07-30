@@ -104,7 +104,7 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
         </div>
       </div>
       <div className={`w-full flex justify-center md:w-auto md:absolute inset-0 items-center ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} px-8`}>
-        <div className={`entry-image-${index} w-full max-w-md h-[40rem] bg-gray-100 shadow-lg rounded-lg z-10 relative`}>
+        <div className={`entry-image-${index} w-full max-w-md h-[36rem] bg-gray-100 shadow-lg hover:sha rounded-lg z-10 relative`}>
           <div className="w-full h-full overflow-hidden rounded relative">
             <div className="w-full h-8 bg-white rounded-t-lg flex items-center justify-start px-2 z-20">
               <button 
@@ -118,7 +118,7 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
               src={entry.previewUrl} 
               className="w-full h-full" 
               title={`${entry.title} Preview`} 
-              style={{ border: 'none' }}
+              style={{ transform: 'scale(0.8)', transformOrigin: '0 0', width: '125%', height: '125%', border: "none" }}
             />
             <div className="absolute inset-0 z-20 bg-transparent pointer-events-none" />
           </div>
