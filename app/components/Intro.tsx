@@ -30,7 +30,7 @@ const Intro = () => {
       </div>
       <div className="flex flex-row items-center space-x-4">
         <button className="btn btn-neutral hover:bg-neutral-focus hover:text-white" onClick={() => window.location.href = '#contact'}>Contact Me</button>
-        <div className="flex items-center space-x-2 cursor-pointer group" onClick={handleScrollToProjects}>
+        <div className="hidden md:flex items-center space-x-2 cursor-pointer group" onClick={handleScrollToProjects}>
           <p className="text-lg group-hover:text-primary">or see what I can do</p>
           <ArrowDown className="group-hover:text-primary" size={24} />
         </div>
