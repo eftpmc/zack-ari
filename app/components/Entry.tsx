@@ -73,7 +73,7 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
   return (
     <motion.div className={`relative flex flex-col md:flex-row items-center justify-center min-h-screen entry-${index} mb-16`}>
       <div className={`md:absolute inset-0 flex items-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} px-8`}>
-        <div className={`entry-info-${index} max-w-md p-8 bg-white shadow-lg rounded-lg mb-8 md:mb-0 z-10`}>
+        <div className={`entry-info-${index} w-full max-w-md p-8 bg-white shadow-lg rounded-lg mb-8 md:mb-0 z-10`}>
           <h3 className="text-2xl text-base-content font-semibold">{entry.title}</h3>
           <time className="block text-sm text-base-content mb-4">{entry.date}</time>
           <div className="flex space-x-2 overflow-x-auto scrollbar-hide scroll-smooth mb-4">
@@ -91,7 +91,7 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
         </div>
       </div>
       <div className={`md:absolute inset-0 flex items-center ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} px-8`}>
-        <div className={`entry-image-${index} max-w-md p-8 bg-gray-100 shadow-lg rounded-lg z-10`}>
+        <div className={`entry-image-${index} w-full max-w-md p-8 bg-gray-100 shadow-lg rounded-lg z-10`}>
           <img src={entry.image} alt={entry.title} className="w-full rounded" />
         </div>
       </div>
