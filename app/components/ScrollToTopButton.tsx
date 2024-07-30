@@ -16,7 +16,7 @@ const ScrollToTopButton = () => {
   };
 
   return (
-    <div className="md:fixed md:bottom-4 md:right-4 flex justify-center mb-8 md:mb-0 p-4">
+    <div className="md:fixed md:bottom-4 md:right-4 flex justify-center mb-8 md:mb-0 p-4 z-20">
       <button onClick={scrollToTop} className="bg-base-content rounded-full p-4 flex items-center justify-center">
         <ArrowUp className="text-base-100" size={24} />
       </button>
