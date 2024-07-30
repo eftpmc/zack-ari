@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const skillColors = {
+const skillColors: { [key: string]: string } = {
   Flutter: "#2371D6",
   Dart: "#0D6293",
   React: "#ffca28",
@@ -18,7 +18,18 @@ const skillColors = {
   GraphQL: "#e91e63",
 };
 
-const Entry = ({ entry, index }) => {
+type EntryProps = {
+  entry: {
+    title: string;
+    date: string;
+    description: string;
+    skills: string[];
+    image: string;
+  };
+  index: number;
+};
+
+const Entry: React.FC<EntryProps> = ({ entry, index }) => {
   useEffect(() => {
     const direction = index % 2 === 0 ? 1 : -1;
 
