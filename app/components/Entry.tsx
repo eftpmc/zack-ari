@@ -74,8 +74,8 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
     <motion.div className={`relative flex flex-col md:flex-row items-center justify-center min-h-screen entry-${index} mb-16`}>
       <div className={`md:absolute inset-0 flex items-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} px-8`}>
         <div className={`entry-info-${index} w-full max-w-md p-8 bg-white shadow-lg rounded-lg mb-8 md:mb-0 z-10`}>
-          <h3 className="text-2xl text-base-content font-semibold">{entry.title}</h3>
-          <time className="block text-sm text-base-content mb-4">{entry.date}</time>
+          <h3 className="text-2xl text-accent-content font-semibold">{entry.title}</h3>
+          <time className="block text-sm text-accent-content mb-4">{entry.date}</time>
           <div className="flex space-x-2 overflow-x-auto scrollbar-hide scroll-smooth mb-4">
             {entry.skills.map((skill, skillIndex) => (
               <span
@@ -87,7 +87,7 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
               </span>
             ))}
           </div>
-          <p className="text-base text-base-content">{entry.description}</p>
+          <p className="text-base text-accent-content">{entry.description}</p>
         </div>
       </div>
       <div className={`md:absolute inset-0 flex items-center ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} px-8`}>
