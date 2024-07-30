@@ -1,9 +1,10 @@
 "use client"
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,18 +19,31 @@ const skillColors: { [key: string]: string } = {
   GraphQL: "#e91e63",
 };
 
+const getColorForSkill = (skill: string, usedColors: { [key: string]: string }): string => {
+  if (skillColors[skill]) return skillColors[skill];
+
+  if (usedColors[skill]) return usedColors[skill];
+
+  // Generate a random color
+  const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  usedColors[skill] = randomColor;
+  return randomColor;
+};
+
 type EntryProps = {
   entry: {
     title: string;
     date: string;
     description: string;
     skills: string[];
-    image: string;
+    previewUrl: string;
   };
   index: number;
 };
 
 const Entry: React.FC<EntryProps> = ({ entry, index }) => {
+  const usedColors = useMemo(() => ({}), []);
+
   useEffect(() => {
     const direction = index % 2 === 0 ? 1 : -1;
 
@@ -72,7 +86,7 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
 
   return (
     <motion.div className={`relative flex flex-col md:flex-row items-center justify-center min-h-screen entry-${index} mb-16`}>
-      <div className={`md:absolute inset-0 flex items-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} px-8`}>
+      <div className={`w-full flex justify-center md:w-auto md:absolute inset-0 items-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} px-8`}>
         <div className={`entry-info-${index} w-full max-w-md p-8 bg-white shadow-lg rounded-lg mb-8 md:mb-0 z-10`}>
           <h3 className="text-2xl text-accent-content font-semibold">{entry.title}</h3>
           <time className="block text-sm text-accent-content mb-4">{entry.date}</time>
@@ -80,8 +94,7 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
             {entry.skills.map((skill, skillIndex) => (
               <span
                 key={skillIndex}
-                className="badge whitespace-nowrap px-2 py-1 rounded-full text-white"
-                style={{ backgroundColor: skillColors[skill] }}
+                className="badge whitespace-nowrap px-2 py-1 rounded-full text-white bg-accent-content"
               >
                 {skill}
               </span>
@@ -90,9 +103,25 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
           <p className="text-base text-accent-content">{entry.description}</p>
         </div>
       </div>
-      <div className={`md:absolute inset-0 flex items-center ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} px-8`}>
-        <div className={`entry-image-${index} w-full max-w-md p-8 bg-gray-100 shadow-lg rounded-lg z-10`}>
-          <img src={entry.image} alt={entry.title} className="w-full rounded" />
+      <div className={`w-full flex justify-center md:w-auto md:absolute inset-0 items-center ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} px-8`}>
+        <div className={`entry-image-${index} w-full max-w-md h-[40rem] bg-gray-100 shadow-lg rounded-lg z-10 relative`}>
+          <div className="w-full h-full overflow-hidden rounded relative">
+            <div className="w-full h-8 bg-white rounded-t-lg flex items-center justify-start px-2 z-20">
+              <button 
+                className="btn btn-sm btn-circle btn-ghost"
+                onClick={() => window.open(entry.previewUrl, '_blank')}
+              >
+                <ExternalLink className="text-accent-content" size={18}/>
+              </button>
+            </div>
+            <iframe 
+              src={entry.previewUrl} 
+              className="w-full h-full" 
+              title={`${entry.title} Preview`} 
+              style={{ border: 'none' }}
+            />
+            <div className="absolute inset-0 z-20 bg-transparent pointer-events-none" />
+          </div>
         </div>
       </div>
     </motion.div>

@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
-        <header className="w-full bg-base-200 text-base-content p-4 flex justify-between items-center z-20 relative" style={{ height: '60px' }}>
+        <header className="w-full bg-base-200 text-base-content p-4 pt-8 flex justify-between items-center z-20 relative" style={{ height: '60px' }}>
           <h1 className="text-xl font-bold">zack/ari</h1>
           <ThemeSwitcher />
         </header>
