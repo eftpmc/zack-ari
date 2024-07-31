@@ -21,7 +21,18 @@ const skillIcons: { [key: string]: JSX.Element } = {
   "Node.js": <SiNodedotjs className="text-2xl" />,
 };
 
-const Entry = ({ entry, index }) => {
+type EntryProps = {
+  entry: {
+    title: string;
+    date: string;
+    description: string;
+    skills: string[];
+    previewUrl: string;
+  };
+  index: number;
+};
+
+const Entry: React.FC<EntryProps> = ({ entry, index }) => {
   useEffect(() => {
     const direction = index % 2 === 0 ? 1 : -1;
 
