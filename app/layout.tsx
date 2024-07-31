@@ -16,13 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <header className="w-full bg-base-200 text-base-content p-4 pt-8 flex justify-between items-center z-20 relative" style={{ height: '60px' }}>
           <h1 className="text-xl font-bold">zack/ari</h1>
           <ThemeSwitcher />
         </header>
-        <main className="bg-base-200 flex-grow z-10 overflow-y-auto">
+        <main className="bg-base-200 z-10 overflow-auto w-full">
           {children}
         </main>
       </body>

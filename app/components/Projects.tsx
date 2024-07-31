@@ -36,10 +36,10 @@ const entries = [
   },
 ];
 
-const Timeline = () => {
+const Projects = () => {
   return (
     <div className="relative">
-      <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gray-300 z-0"></div>
+      {/* <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gray-300 z-0"></div> */}
       <div className="space-y-16 relative z-10">
         {entries.map((entry, index) => (
           <Entry key={index} entry={entry} index={index} />
@@ -49,4 +49,4 @@ const Timeline = () => {
   );
 };
 
-export default Timeline;
+export default Projects;

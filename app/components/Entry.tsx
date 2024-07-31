@@ -5,45 +5,23 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink } from 'lucide-react';
+import { RiNextjsFill, RiTailwindCssFill, RiReactjsFill } from "react-icons/ri";
+import { BiLogoTypescript } from "react-icons/bi";
+import { SiSupabase, SiMarkdown, SiNodedotjs } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const skillColors: { [key: string]: string } = {
-  Flutter: "#2371D6",
-  Dart: "#0D6293",
-  React: "#ffca28",
-  TailwindCSS: "#1e40af",
-  DaisyUI: "#d946ef",
-  "Next.js": "#e11d48",
-  TypeScript: "#0288d1",
-  GraphQL: "#e91e63",
+const skillIcons: { [key: string]: JSX.Element } = {
+  "Next.js": <RiNextjsFill className="text-2xl" />,
+  "TailwindCSS": <RiTailwindCssFill className="text-2xl" />,
+  "React": <RiReactjsFill className="text-2xl" />,
+  "TypeScript": <BiLogoTypescript className="text-2xl" />,
+  "Supabase": <SiSupabase className="text-2xl" />,
+  "Markdown": <SiMarkdown className="text-2xl" />,
+  "Node.js": <SiNodedotjs className="text-2xl" />,
 };
 
-const getColorForSkill = (skill: string, usedColors: { [key: string]: string }): string => {
-  if (skillColors[skill]) return skillColors[skill];
-
-  if (usedColors[skill]) return usedColors[skill];
-
-  // Generate a random color
-  const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  usedColors[skill] = randomColor;
-  return randomColor;
-};
-
-type EntryProps = {
-  entry: {
-    title: string;
-    date: string;
-    description: string;
-    skills: string[];
-    previewUrl: string;
-  };
-  index: number;
-};
-
-const Entry: React.FC<EntryProps> = ({ entry, index }) => {
-  const usedColors = useMemo(() => ({}), []);
-
+const Entry = ({ entry, index }) => {
   useEffect(() => {
     const direction = index % 2 === 0 ? 1 : -1;
 
@@ -85,26 +63,23 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
   }, [index]);
 
   return (
-    <motion.div className={`relative flex flex-col md:flex-row items-center justify-center min-h-screen entry-${index} mb-16`}>
+    <motion.div className={`relative flex flex-col md:flex-row items-center justify-center min-h-screen entry-${index} my-16`}>
       <div className={`w-full flex justify-center md:w-auto md:absolute inset-0 items-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} px-8`}>
-        <div className={`entry-info-${index} w-full max-w-md p-8 bg-white shadow-lg rounded-lg mb-8 md:mb-0 z-10`}>
-          <h3 className="text-2xl text-accent-content font-semibold">{entry.title}</h3>
-          <time className="block text-sm text-accent-content mb-4">{entry.date}</time>
+        <div className={`entry-info-${index} w-full max-w-md p-8 rounded-lg mb-8 md:mb-0 z-10`}>
+          <h3 className="text-2xl text-base-content font-semibold">{entry.title}</h3>
+          <time className="block text-sm text-base-content mb-4">{entry.date}</time>
           <div className="flex space-x-2 overflow-x-auto scrollbar-hide scroll-smooth mb-4">
             {entry.skills.map((skill, skillIndex) => (
-              <span
-                key={skillIndex}
-                className="badge whitespace-nowrap px-2 py-1 rounded-full text-white bg-accent-content"
-              >
-                {skill}
+              <span key={skillIndex} className="flex items-center justify-center text-base-content">
+                {skillIcons[skill]}
               </span>
             ))}
           </div>
-          <p className="text-base text-accent-content">{entry.description}</p>
+          <p className="text-base text-base-content">{entry.description}</p>
         </div>
       </div>
       <div className={`w-full flex justify-center md:w-auto md:absolute inset-0 items-center ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} px-8`}>
-        <div className={`entry-image-${index} w-full max-w-md h-[36rem] bg-gray-100 shadow-lg hover:sha rounded-lg z-10 relative`}>
+        <div className={`entry-image-${index} w-full max-w-md h-[40rem] bg-gray-100 shadow-lg hover:sha rounded-lg z-10 relative`}>
           <div className="w-full h-full overflow-hidden rounded relative">
             <div className="w-full h-8 bg-white rounded-t-lg flex items-center justify-start px-2 z-20">
               <button 
@@ -120,7 +95,6 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
               title={`${entry.title} Preview`} 
               style={{ transform: 'scale(0.8)', transformOrigin: '0 0', width: '125%', height: '125%', border: "none" }}
             />
-            <div className="absolute inset-0 z-20 bg-transparent pointer-events-none" />
           </div>
         </div>
       </div>
