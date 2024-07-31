@@ -35,13 +35,6 @@ const Intro = () => {
         <h1 className="intro-title text-2xl md:text-4xl font-bold font-squarechunks mb-2">Hi, I'm Zack</h1>
         <h2 className="intro-subtitle text-4xl md:text-5xl font-starblues text-primary mb-6 whitespace-nowrap">Fullstack Developer</h2>
       </div>
-      <div className="flex flex-row items-center space-x-4">
-        <button className="btn btn-neutral hover:bg-neutral-focus hover:text-white" onClick={handleScrollToContact}>Contact Me</button>
-        <div className="hidden md:flex items-center space-x-2 cursor-pointer group" onClick={handleScrollToProjects}>
-          <p className="text-lg group-hover:text-primary">or see what I can do</p>
-          <ArrowDown className="group-hover:text-primary" size={24} />
-        </div>
-      </div>
     </section>
   );
 };
