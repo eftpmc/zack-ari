@@ -22,7 +22,7 @@ export default function RootLayout({
           <h1 className="text-xl font-bold">zack/ari</h1>
           <ThemeSwitcher />
         </header>
-        <main className="bg-base-200 z-10 overflow-auto w-full">
+        <main className="bg-base-200 z-10 overflow-x-hidden w-full">
           {children}
         </main>
       </body>
