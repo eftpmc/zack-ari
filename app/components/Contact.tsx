@@ -81,8 +81,9 @@ const Contact = () => {
         <a href="mailto:zackhhi@gmail.com" className="hover:underline">zackhhi@gmail.com</a>
       </p>
       <ul className="contact-links space-y-2 text-lg">
-        <li><a href="https://www.linkedin.com/in/zachary-starnes-810932237/" className="hover:underline">LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/zack_hhi/" className="hover:underline">Instagram</a></li>
+        <li><a href="https://github.com/eftpmc" target="_blank" rel="noopener noreferrer" className="hover:underline">Github</a></li>
+        <li><a href="https://www.instagram.com/zack_hhi/" target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/zachary-starnes-810932237/" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a></li>
       </ul>
       <div className="contact-svg mt-8">
         <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
