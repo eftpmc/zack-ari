@@ -74,9 +74,9 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
   }, [index]);
 
   return (
-    <motion.div className={`relative flex flex-col md:flex-row items-center justify-center min-h-screen entry-${index} my-16`}>
-      <div className={`w-full flex justify-center md:w-auto md:absolute inset-0 items-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} px-8`}>
-        <div className={`entry-info-${index} w-full max-w-md p-8 rounded-lg mb-8 md:mb-0 z-10`}>
+    <motion.div className={`relative flex flex-col lg:flex-row items-center justify-center min-h-screen entry-${index} my-16`}>
+      <div className={`w-full flex justify-center lg:w-auto lg:absolute inset-0 items-center ${index % 2 === 0 ? 'lg:justify-start' : 'lg:justify-end'} px-4 lg:px-8`}>
+        <div className={`entry-info-${index} w-full max-w-lg p-8 rounded-lg mb-8 lg:mb-0 z-10`}>
           <h3 className="text-2xl text-base-content font-semibold">{entry.title}</h3>
           <time className="block text-sm text-base-content mb-4">{entry.date}</time>
           <div className="flex space-x-2 overflow-x-auto scrollbar-hide scroll-smooth mb-4">
@@ -89,8 +89,8 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
           <p className="text-base text-base-content">{entry.description}</p>
         </div>
       </div>
-      <div className={`w-full flex justify-center md:w-auto md:absolute inset-0 items-center ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} px-8`}>
-        <div className={`entry-image-${index} w-full max-w-md h-[40rem] bg-gray-100 shadow-lg hover:sha rounded-lg z-10 relative`}>
+      <div className={`w-full flex justify-center lg:w-auto lg:absolute inset-0 items-center ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'} px-4 lg:px-8`}>
+        <div className={`entry-image-${index} w-full max-w-lg h-[40rem] bg-gray-100 shadow-lg hover:sha rounded-lg z-10 relative`}>
           <div className="w-full h-full overflow-hidden rounded relative">
             <div className="w-full h-8 bg-white rounded-t-lg flex items-center justify-start px-2 z-20">
               <button 
