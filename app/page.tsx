@@ -10,7 +10,7 @@ export default function Page() {
     <>
       <Intro />
       <About />
-      <Projects />
+      <Projects showFull={false}/>
       <Contact />
       <ScrollToTopButton />
     </>
