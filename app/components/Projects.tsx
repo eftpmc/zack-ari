@@ -1,8 +1,12 @@
 "use client"
 
-import React from 'react';
+import React, {useEffect} from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
 import Link from 'next/link';
 import Entry from './Entry';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const entries = [
   {
@@ -42,8 +46,29 @@ const entries = [
 const Projects = ({ showFull = false }) => {
   const projectsToShow = showFull ? entries : entries.slice(0, 3);
 
+  useEffect(() => {
+    gsap.fromTo(
+        '.project-section',
+        { opacity: 0, y: 50 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            scrollTrigger: {
+                trigger: '.project-section',
+                start: 'top 90%',
+                end: 'top 70%',
+                scrub: true,
+            },
+        }
+    );
+}, []);
+
   return (
-    <div className="relative">
+    <div className="project-section relative">
+      <div className="flex justify-center mt-8">
+      <h1 className="intro-title text-2xl md:text-4xl text-base-content font-bold font-squarechunks mb-2">Projects</h1>
+      </div>
       <div className="space-y-16 relative z-10">
         {projectsToShow.map((entry, index) => (
           <Entry key={index} entry={entry} index={index} />
