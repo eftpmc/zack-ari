@@ -31,7 +31,7 @@ const entries = [
     description: `Aritools was a web scraping project created for educational purposes, the website was running privately for a few months before being shutdown. It aimed to scrape ad infested media and present it to the user. The project was also discontinued due to the legal gray area involved with web scraping. The API used advanced web scraping methods and was fairly complex. It featured a frontend using Vitepress and a backend using Node.js.`,
     skills: ['Vitepress', 'Markdown', 'Node.js'],
     image: 'https://via.placeholder.com/400',
-    previewUrl: 'https://aritools.xyz'
+    previewUrl: 'https://aritools.vercel.app'
   },
   {
     title: 'Keep Web App',
