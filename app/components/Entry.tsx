@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink } from 'lucide-react';
 import { RiNextjsFill, RiTailwindCssFill, RiReactjsFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
-import { SiSupabase, SiMarkdown, SiNodedotjs } from "react-icons/si";
+import { SiSupabase, SiMarkdown, SiNodedotjs, SiGithub } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +28,7 @@ type EntryProps = {
     description: string;
     skills: string[];
     previewUrl: string;
+    githubUrl?: string;  // Optional prop for GitHub URL
   };
   index: number;
 };
@@ -92,13 +93,21 @@ const Entry: React.FC<EntryProps> = ({ entry, index }) => {
       <div className={`w-full flex justify-center lg:w-auto lg:absolute inset-0 items-center ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'} px-4 lg:px-8`}>
         <div className={`entry-image-${index} w-full max-w-lg h-[40rem] bg-gray-100 shadow-lg hover:sha rounded-lg z-10 relative`}>
           <div className="w-full h-full overflow-hidden rounded relative">
-            <div className="w-full h-8 bg-white rounded-t-lg flex items-center justify-start px-2 z-20">
+            <div className="w-full h-8 bg-white rounded-t-lg flex items-center justify-between px-2 z-20">
               <button 
                 className="btn btn-sm btn-circle btn-ghost"
                 onClick={() => window.open(entry.previewUrl, '_blank')}
               >
                 <ExternalLink className="text-accent-content" size={18}/>
               </button>
+              {entry.githubUrl && (
+                <button 
+                  className="btn btn-sm btn-circle btn-ghost"
+                  onClick={() => window.open(entry.githubUrl, '_blank')}
+                >
+                  <SiGithub className="text-accent-content" size={18}/>
+                </button>
+              )}
             </div>
             <iframe 
               src={entry.previewUrl} 
