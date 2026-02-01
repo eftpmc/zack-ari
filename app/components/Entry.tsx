@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink } from 'lucide-react';
 import { RiNextjsFill, RiTailwindCssFill, RiReactjsFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
-import { SiSupabase, SiMarkdown, SiNodedotjs, SiGithub } from "react-icons/si";
+import { SiSupabase, SiMarkdown, SiNodedotjs, SiGithub, SiExpo, SiSwift, SiKotlin, SiSpotify, SiYoutubemusic } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +19,11 @@ const skillIcons: { [key: string]: JSX.Element } = {
   "Supabase": <SiSupabase className="text-2xl" />,
   "Markdown": <SiMarkdown className="text-2xl" />,
   "Node.js": <SiNodedotjs className="text-2xl" />,
+  "Expo": <SiExpo className="text-2xl" />,
+  "Swift": <SiSwift className="text-2xl" />,
+  "Kotlin": <SiKotlin className="text-2xl" />,
+  "Spotify": <SiSpotify className="text-2xl" />,
+  "Youtube Music": <SiYoutubemusic className="text-2xl" />,
 };
 
 type EntryProps = {
