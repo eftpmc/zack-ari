@@ -1,27 +1,50 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
-const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState("light");
+const STORAGE_KEY = "theme";
+
+/**
+ * Light/dark toggle. Persists the choice and defaults to the OS preference
+ * on first visit. The inline script in layout.tsx applies the theme before
+ * paint so there is no flash of the wrong theme.
+ */
+export default function ThemeSwitcher() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+    const current =
+      (document.documentElement.getAttribute("data-theme") as "light" | "dark") ??
+      "light";
+    setTheme(current);
+    setMounted(true);
+  }, []);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  const toggle = () => {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      /* storage can be blocked; the toggle still works for this session */
+    }
   };
 
   return (
     <button
-      onClick={toggleTheme}
-      className="btn btn-square btn-primary"
+      onClick={toggle}
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+      className="rounded-lg border border-base-content/15 p-2 text-base-content transition-colors hover:border-primary hover:text-primary"
     >
-      {theme === "light" ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+      {/* Render a stable icon until mounted to avoid hydration mismatch */}
+      {!mounted || theme === "light" ? (
+        <Sun className="h-5 w-5" />
+      ) : (
+        <Moon className="h-5 w-5" />
+      )}
     </button>
   );
-};
-
-export default ThemeSwitcher;
+}

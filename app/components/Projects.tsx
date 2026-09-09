@@ -1,100 +1,33 @@
-"use client"
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import ProjectCard from "./ProjectCard";
+import { projects } from "@/lib/content";
 
-import React, {useEffect} from 'react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { gsap } from 'gsap';
-import Link from 'next/link';
-import Entry from './Entry';
-
-gsap.registerPlugin(ScrollTrigger);
-
-const entries = [
-  {
-    title: 'Yuzic',
-    date: 'December 2024',
-    description: 'Created with React Native and Expo. Yuzic is a music player for Navidrome and Jellyfin, self-hosted media servers that serve music.',
-    skills: ['React', 'Expo', 'Kotlin', 'Swift'],
-    previewUrl: 'https://eftpmc.github.io/yuzic-web/',
-    githubUrl: 'https://github.com/eftpmc/yuzic'
-  },
-  {
-    title: 'Melodari',
-    date: 'August 2024',
-    description: 'Melodari was a platform dedicated to syncing playlists between popular platforms like Spotify and Youtube Music',
-    skills: ['React', 'Supabase', 'Spotify', 'Youtube Music'],
-    previewUrl: 'https://melodari-v2.vercel.app/',
-    githubUrl: 'https://github.com/eftpmc/melodari'
-  },
-  {
-    title: `HHIPE`,
-    date: 'March 2024',
-    description: `Created with Next.js and Tailwind, this website was created for a local parking enforcement company on Hilton Head Island, SC. It's design was inspired by Hilton Head Island with a coastal color scheme and themed elements.`,
-    skills: ['Next.js', 'TailwindCSS'],
-    previewUrl: 'https://hhipe.com',
-    githubUrl: 'https://github.com/eftpmc/hhip-open-source'
-  },
-  {
-    title: 'Aritools',
-    date: 'June 2023',
-    description: `Aritools was a web scraping project created for educational purposes, the website was running privately for a few months before being shutdown. It aimed to scrape ad infested media and present it to the user. The project was also discontinued due to the legal gray area involved with web scraping. The API used advanced web scraping methods and was fairly complex. It featured a frontend using Vitepress and a backend using Node.js.`,
-    skills: ['Vitepress', 'Markdown', 'Node.js'],
-    previewUrl: 'https://aritools.vercel.app',
-    githubUrl: 'https://github.com/eftpmc/aritools'
-  },
-  {
-    title: 'Keep',
-    date: 'October 2023',
-    description: `Keep was a hobby project designed for self-expression and organization. The development focused heavily on the backend and using supabase to store images, user information, and data. It features authentication, interactive cards, and a responsive masonry layout.`,
-    skills: ['Next.js', 'TailwindCSS', 'Supabase'],
-    previewUrl: 'https://keep-three.vercel.app/',
-    githubUrl: 'https://github.com/eftpmc/keep'
-  },
-];
-
-const Projects = ({ showFull = false }) => {
-  const projectsToShow = showFull ? entries : entries.slice(0, 3);
-
-  useEffect(() => {
-    gsap.fromTo(
-        '.project-section',
-        { opacity: 0, y: 50 },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-            scrollTrigger: {
-                trigger: '.project-section',
-                start: 'top 90%',
-                end: 'top 70%',
-                scrub: true,
-            },
-        }
-    );
-}, []);
+export default function Projects({ showAll = false }: { showAll?: boolean }) {
+  const list = showAll ? projects : projects.slice(0, 4);
 
   return (
-    <div className="project-section relative">
-      <div className="flex justify-center mt-8">
-      <h1 className="intro-title text-2xl md:text-4xl text-base-content font-bold font-squarechunks mb-2">Projects</h1>
+    <section id="work" className="section scroll-mt-20">
+      <div className="flex items-end justify-between gap-4">
+        <h2 className="section-title reveal">
+          {showAll ? "All projects" : "Selected work"}
+        </h2>
+        {!showAll && projects.length > list.length ? (
+          <Link
+            href="/projects"
+            className="reveal inline-flex items-center gap-1 text-sm font-medium text-base-content/70 transition-colors hover:text-primary"
+          >
+            View all {projects.length}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        ) : null}
       </div>
-      <div className="space-y-16 relative z-10">
-        {projectsToShow.map((entry, index) => (
-          <Entry key={index} entry={entry} index={index} />
+
+      <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
+        {list.map((p) => (
+          <ProjectCard key={p.title} project={p} />
         ))}
       </div>
-      {!showFull && (
-        <div className="flex justify-center mt-8">
-          <Link href="/projects" passHref>
-            <button
-              className="px-6 py-3 bg-base-200 border border-base-content text-base-content font-semibold rounded-md hover:bg-primary hover:text-base-200 transition-colors duration-300"
-            >
-              See More Projects
-            </button>
-          </Link>
-        </div>
-      )}
-    </div>
+    </section>
   );
-};
-
-export default Projects;
+}

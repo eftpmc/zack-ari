@@ -2,38 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'Square Chunks';
+  src: url('/Square-Chunks.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-html {
-  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+@font-face {
+  font-family: 'Urban Starblues';
+  src: url('/Urban-Starblues.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -41,18 +23,52 @@ html {
   src: url('/Noord-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
-@font-face {
-  font-family: 'Square Chunks';
-  src: url('/Square-Chunks.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
-@font-face {
-  font-family: 'Urban Starblues';
-  src: url('/Urban-Starblues.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  /* Section wrapper: consistent rhythm, no forced full-viewport heights. */
+  .section {
+    @apply mx-auto w-full max-w-5xl px-6 py-20 md:py-28;
+  }
+  .section-title {
+    @apply font-squarechunks text-2xl md:text-3xl tracking-wide text-base-content;
+  }
+  .card-surface {
+    @apply rounded-xl border border-base-content/10 bg-base-100 transition-colors duration-200;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-md border border-base-content/15 bg-base-200 px-2 py-1 text-xs font-medium text-base-content/80;
+  }
+  .link-underline {
+    @apply underline decoration-base-content/30 underline-offset-4 transition-colors hover:decoration-primary hover:text-primary;
+  }
+}
+
+/* Reveal-on-scroll, CSS-only. Elements start hidden and are unhidden by
+   IntersectionObserver adding .is-visible. If JS fails, `.reveal` without the
+   observer would stay hidden, so the observer sets a fallback class on <html>. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal.is-visible,
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
 }

@@ -1,18 +1,15 @@
-import React from 'react';
-import Intro from './components/Intro';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import ScrollToTopButton from './components/ScrollToTopButton';
-import About from './components/About';
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 export default function Page() {
   return (
     <>
-      <Intro />
+      <Hero />
+      <Projects />
       <About />
-      <Projects showFull={false}/>
       <Contact />
-      <ScrollToTopButton />
     </>
   );
 }
