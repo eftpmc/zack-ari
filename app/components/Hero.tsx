@@ -5,7 +5,7 @@ import { profile, stats } from "@/lib/content";
 export default function Hero() {
   return (
     <section className="section pt-16 md:pt-24">
-      <p className="reveal font-mono text-sm text-primary">Hi, I&apos;m Zack</p>
+      <p className="reveal text-sm font-medium text-primary">Hi, I&apos;m Zack</p>
 
       <h1 className="reveal mt-3 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
         {profile.name}

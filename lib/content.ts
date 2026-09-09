@@ -35,6 +35,8 @@ export type Project = {
   featured?: boolean;
 };
 
+// The first four cards are the homepage highlights. The complete list appears
+// on /projects via the existing “View more” link.
 export const projects: Project[] = [
   {
     title: "Yuzic",
@@ -49,17 +51,6 @@ export const projects: Project[] = [
       { label: "Source", href: "https://github.com/yuzicapp/yuzic" },
     ],
     highlight: "499 stars · 20 forks · 7 contributors",
-    featured: true,
-  },
-  {
-    title: "Octo-Fiesta",
-    period: "2026",
-    blurb:
-      "A Subsonic API proxy that makes remote streaming providers look like part of your local library. When a track is missing from Navidrome, it is fetched from a configured provider, tagged with full metadata and cover art, filed into an Artist/Album/Track tree, and served to the client in-flight. Supports hi-res FLAC up to 24-bit/192kHz.",
-    stack: ["C#", ".NET", "Subsonic API", "Docker"],
-    links: [{ label: "Source", href: "https://github.com/eftpmc/octo-fiesta" }],
-    highlight: "Pluggable multi-provider architecture",
-    featured: true,
   },
   {
     title: "Melodari",
@@ -76,29 +67,28 @@ export const projects: Project[] = [
     title: "HHIPE",
     period: "2024",
     blurb:
-      "Marketing and operations site built under contract for a parking enforcement company on Hilton Head Island. Designed around a coastal palette to match the island the business serves. Delivered and handed off to the client.",
+      "Client website for a Hilton Head parking enforcement company. Built responsive layouts and contact flows, then delivered deployment handoff to the client.",
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     links: [{ label: "Source", href: "https://github.com/eftpmc/hhip-open-source" }],
     highlight: "Client work",
   },
   {
-    title: "Limport",
-    period: "2025",
+    title: "Reddibase",
+    period: "2026",
     blurb:
-      "A small CLI for installing and managing music libraries on headless servers — the glue tool I kept rewriting by hand until it deserved to be a package.",
-    stack: ["TypeScript", "Node.js", "CLI"],
-    links: [{ label: "Source", href: "https://github.com/eftpmc/limport" }],
+      "A source-neutral answer-extraction pipeline that turns solved discussion threads into structured datasets. Built a resolved-thread classifier and semantic identifier backed by a FAISS vector index for ranking likely answers from vague descriptions.",
+    stack: ["Python", "PyTorch", "SentenceTransformers", "FAISS", "FastAPI"],
+    links: [{ label: "Source", href: "https://github.com/eftpmc/reddibase" }],
+    highlight: "ML research project",
   },
   {
-    title: "Marionet",
-    period: "2025",
+    title: "Lowcountry Chorale",
+    period: "Client work",
     blurb:
-      "Container orchestration helper for self-hosted media infrastructure, published as a public Docker image.",
-    stack: ["TypeScript", "Docker"],
-    links: [
-      { label: "Docker Hub", href: "https://hub.docker.com/r/eftpmc/armer" },
-      { label: "Source", href: "https://github.com/eftpmc/marionet" },
-    ],
+      "Website for Lowcountry Chorale in Lady’s Island. Delivered a responsive public-facing site, contact forms, and deployment handoff as part of freelance work for local organizations.",
+    stack: ["React", "Next.js", "Node.js", "TypeScript", "TailwindCSS", "WordPress"],
+    links: [],
+    highlight: "Client work",
   },
 ];
 

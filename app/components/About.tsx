@@ -18,7 +18,7 @@ export default function About() {
                 {job.title}
                 <span className="text-base-content/60"> · {job.org}</span>
               </h4>
-              <span className="font-mono text-xs text-base-content/50">{job.period}</span>
+              <span className="text-xs text-base-content/50">{job.period}</span>
             </div>
             <ul className="mt-3 space-y-1.5 text-base-content/75">
               {job.points.map((point) => (
