@@ -10,7 +10,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="reveal card-surface group flex h-full flex-col p-6 hover:border-primary/40">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className="font-squarechunks text-xl tracking-wide">{project.title}</h3>
+        <h3 className="text-xl font-semibold tracking-tight">{project.title}</h3>
         <span className="font-mono text-xs text-base-content/50">{project.period}</span>
       </div>
 

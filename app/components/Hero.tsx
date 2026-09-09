@@ -7,11 +7,11 @@ export default function Hero() {
     <section className="section pt-16 md:pt-24">
       <p className="reveal font-mono text-sm text-primary">Hi, I&apos;m Zack</p>
 
-      <h1 className="reveal mt-3 font-squarechunks text-4xl leading-tight tracking-wide md:text-6xl">
+      <h1 className="reveal mt-3 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
         {profile.name}
       </h1>
 
-      <p className="reveal mt-2 font-starblues text-3xl text-primary md:text-5xl">
+      <p className="reveal mt-2 text-3xl font-medium tracking-tight text-primary md:text-4xl">
         {profile.role}
       </p>
 
@@ -58,7 +58,7 @@ export default function Hero() {
         {stats.map((s) => (
           <div key={s.label} className="card-surface p-5">
             <dt className="text-sm text-base-content/60">{s.label}</dt>
-            <dd className="mt-1 font-squarechunks text-3xl text-primary">{s.value}</dd>
+            <dd className="mt-1 text-3xl font-semibold tabular-nums tracking-tight text-primary">{s.value}</dd>
           </div>
         ))}
       </dl>

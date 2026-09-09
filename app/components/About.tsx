@@ -9,7 +9,7 @@ export default function About() {
         {profile.summary}
       </p>
 
-      <h3 className="reveal mt-14 font-squarechunks text-lg tracking-wide">Experience</h3>
+      <h3 className="reveal mt-14 text-lg font-semibold tracking-tight">Experience</h3>
       <ol className="mt-6 space-y-6">
         {experience.map((job) => (
           <li key={`${job.org}-${job.title}`} className="reveal card-surface p-6">
@@ -32,7 +32,7 @@ export default function About() {
         ))}
       </ol>
 
-      <h3 className="reveal mt-14 font-squarechunks text-lg tracking-wide">Skills</h3>
+      <h3 className="reveal mt-14 text-lg font-semibold tracking-tight">Skills</h3>
       <dl className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
         {skills.map((group) => (
           <div key={group.group} className="reveal">

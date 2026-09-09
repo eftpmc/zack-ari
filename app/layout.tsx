@@ -75,7 +75,7 @@ export default function RootLayout({
           <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
             <Link href="/" className="flex items-center gap-2" aria-label="Home">
               <AriLogo className="h-8 w-8 fill-primary" />
-              <span className="font-squarechunks text-lg tracking-wide">zack/ari</span>
+              <span className="font-squarechunks text-base tracking-wide">zack/ari</span>
             </Link>
 
             <div className="flex items-center gap-1 sm:gap-4">

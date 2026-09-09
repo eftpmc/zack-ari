@@ -9,9 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        starblues: ["Urban Starblues", "san-serif"],
-        squarechunks: ["Square Chunks", "san-serif"],
-        noord: ['Noord Regular', 'sans-serif'],
+        squarechunks: ["Square Chunks", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
