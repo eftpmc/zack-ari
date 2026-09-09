@@ -20,7 +20,7 @@ export const profile = {
 export const stats: { label: string; value: string }[] = [
   { label: "GitHub stars on Yuzic", value: "499" },
   { label: "App release downloads", value: "3.2k+" },
-  { label: "Shipped on iOS & Android", value: "2 stores" },
+  { label: "Yuzic contributors", value: "7" },
 ];
 
 export type Link = { label: string; href: string };
