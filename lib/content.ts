@@ -16,11 +16,11 @@ export const profile = {
   },
 };
 
-// Headline numbers. Keep these honest and easy to re-check.
+// Personal facts, not product metrics. Each is supported by the current resume.
 export const stats: { label: string; value: string }[] = [
-  { label: "GitHub stars on Yuzic", value: "499" },
-  { label: "App release downloads", value: "3.2k+" },
-  { label: "Yuzic contributors", value: "7" },
+  { label: "B.S. Computer Science", value: "’28" },
+  { label: "Freelance development", value: "Since ’22" },
+  { label: "Programming tutorials", value: "1M+ views" },
 ];
 
 export type Link = { label: string; href: string };
