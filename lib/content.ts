@@ -7,7 +7,7 @@ export const profile = {
   role: "CS student at Clemson",
   tagline: "I make apps and run the servers behind them.",
   location: "Clemson, SC",
-  summary: `I started making Roblox games in Lua when I was twelve and kept going. These days I maintain Yuzic, an open-source music player for iOS and Android, and self-host most of what I use. Mostly TypeScript, some Python.`,
+  summary: `I started making Roblox games in Lua when I was twelve and kept going. These days I maintain Yuzic, an open-source music player for iOS and Android, and run the Proxmox and Docker setup at home that hosts the servers it connects to. Mostly TypeScript, some Python.`,
   email: "zackhhi@gmail.com",
   resume: "/zachary-starnes-resume.pdf",
   links: {
@@ -20,7 +20,7 @@ export const profile = {
 // Small, factual, and verifiable from a link on the page.
 export const stats: { label: string; value: string }[] = [
   { label: "Yuzic on GitHub", value: "500+ stars" },
-  { label: "Self-hosted services", value: "~30" },
+  { label: "Answer pairs in Reddibase", value: "174K" },
   { label: "Lua tutorials on YouTube", value: "1M+ views" },
 ];
 
@@ -68,15 +68,6 @@ export const projects: Project[] = [
       { label: "Classifier", href: "https://huggingface.co/eftpmc/reddibase-classifier" },
     ],
     highlight: "174K pairs · 2 models on Hugging Face",
-  },
-  {
-    title: "Homelab",
-    period: "Ongoing",
-    blurb:
-      "A hypervisor, about thirty containers, and 4TB of storage at home. It runs the media servers Yuzic connects to.",
-    stack: ["Proxmox", "Docker", "Tailscale", "Linux"],
-    links: [],
-    highlight: "~30 services",
   },
   {
     title: "Melodari",
