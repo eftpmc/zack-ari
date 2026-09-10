@@ -4,11 +4,13 @@
 export const profile = {
   name: "Zachary Starnes",
   short: "Zack",
-  role: "Software Engineer",
-  tagline: "I build cross-platform apps and the servers behind them.",
+  role: "CS student who ships real software",
+  tagline:
+    "I build cross-platform apps, the servers behind them, and the machines those servers run on.",
   location: "Clemson, SC",
-  summary: `Computer Science student at Clemson University who ships real software. I maintain Yuzic, an open-source music player on the App Store and Google Play with 499 stars and 20 forks on GitHub, and I've built web and mobile products for local businesses since 2023. I work mostly in TypeScript across React, React Native, and Node, and I self-host most of what I run.`,
+  summary: `I have been shipping software to real users since I was twelve, and I have never really stopped. It started with Roblox games in Lua — I built and sold a homestore for 35,000 Robux before I could drive — and turned into a YouTube channel that reached 3,000+ subscribers and over a million views teaching other people to do the same. Since then it has been freelance work for local businesses, a volunteer engineering role where I pair-programmed with a Google engineer, and now Yuzic: an open-source music player on the App Store and Google Play that I maintain for thousands of users and seven contributors. I am a Computer Science student at Clemson, I work mostly in TypeScript across React, React Native, and Node, and I run a small Proxmox and Docker fleet at home because I would rather operate the infrastructure than rent it.`,
   email: "zackhhi@gmail.com",
+  resume: "/zachary-starnes-resume.pdf",
   links: {
     github: "https://github.com/eftpmc",
     linkedin: "https://www.linkedin.com/in/zachary-starnes-810932237/",
@@ -16,10 +18,10 @@ export const profile = {
   },
 };
 
-// Personal facts, not product metrics. Each is supported by the current resume.
+// Proof points, not dates. Each is verifiable from a link elsewhere on the page.
 export const stats: { label: string; value: string }[] = [
-  { label: "B.S. Computer Science", value: "’28" },
-  { label: "Freelance development", value: "Since ’22" },
+  { label: "Yuzic, open source", value: "500+ stars" },
+  { label: "Answer-pair dataset built", value: "174K pairs" },
   { label: "Programming tutorials", value: "1M+ views" },
 ];
 
@@ -42,7 +44,7 @@ export const projects: Project[] = [
     title: "Yuzic",
     period: "2024 — present",
     blurb:
-      "Cross-platform open-source music player for Navidrome, Jellyfin, and Emby servers. Published on the App Store and Google Play, with an automated release pipeline that cuts iOS and Android builds on every version bump. Native audio playback, offline downloads, background mode, and lock-screen controls.",
+      "Cross-platform open-source music player for Navidrome, Jellyfin, and Emby servers, used by thousands of people and published on both the App Store and Google Play. I maintain it: reviewing contributions from seven other developers, triaging issues, and running an automated pipeline that cuts and ships signed iOS and Android builds on every version bump. Native audio playback, offline downloads, background mode, and lock-screen controls.",
     stack: ["React Native", "Expo", "TypeScript", "Kotlin", "Swift"],
     links: [
       { label: "App Store", href: "https://apps.apple.com/us/app/yuzic-navidrome-jellyfin/id6740042497" },
@@ -50,7 +52,32 @@ export const projects: Project[] = [
       { label: "Web demo", href: "https://yuzicapp.github.io/yuzic-web/" },
       { label: "Source", href: "https://github.com/yuzicapp/yuzic" },
     ],
-    highlight: "499 stars · 20 forks · 7 contributors",
+    highlight: "500+ stars · thousands of users · 7 contributors",
+  },
+  {
+    title: "Reddibase",
+    period: "2026",
+    blurb:
+      "A source-neutral pipeline that turns human-solved discussion threads into answer-extraction datasets. A DistilBERT classifier finds the message in a thread that actually contains the resolved answer, a canonicalization pass extracts the answer itself, and a fine-tuned MiniLM encoder plus a FAISS index retrieves ranked matches from vague, half-remembered descriptions. Built the full path end to end — scraper, training scripts, evaluation harness, FastAPI service, and web UI — and produced a 174,094-pair dataset with both models published to Hugging Face.",
+    stack: ["Python", "PyTorch", "SentenceTransformers", "FAISS", "FastAPI", "Next.js"],
+    links: [
+      { label: "Source", href: "https://github.com/eftpmc/reddibase" },
+      {
+        label: "Identification model",
+        href: "https://huggingface.co/eftpmc/tipofmyjoystick-identification",
+      },
+      { label: "Classifier", href: "https://huggingface.co/eftpmc/reddibase-classifier" },
+    ],
+    highlight: "174K confirmed pairs · 2 models on Hugging Face",
+  },
+  {
+    title: "Homelab & self-hosted infrastructure",
+    period: "Ongoing",
+    blurb:
+      "A small production environment I run myself, mostly so that nothing I build has to depend on somebody else's free tier. A Proxmox hypervisor hosts virtualized guests alongside roughly 4TB of storage; about thirty Docker services run on top of it, including the Navidrome and Jellyfin servers that Yuzic connects to. Everything is joined by a private Tailscale mesh across a Mac mini, a Linux box with an RTX 3060 Ti for GPU work, the Proxmox server, and laptop and phone clients — no ports open to the internet.",
+    stack: ["Proxmox", "Docker", "Tailscale", "Linux", "Nginx", "GitHub Actions"],
+    links: [],
+    highlight: "~30 services · Proxmox + Tailscale · self-operated",
   },
   {
     title: "Melodari",
@@ -73,22 +100,13 @@ export const projects: Project[] = [
     highlight: "Client work",
   },
   {
-    title: "Reddibase",
-    period: "2026",
-    blurb:
-      "A source-neutral answer-extraction pipeline that turns solved discussion threads into structured datasets. Built a resolved-thread classifier and semantic identifier backed by a FAISS vector index for ranking likely answers from vague descriptions.",
-    stack: ["Python", "PyTorch", "SentenceTransformers", "FAISS", "FastAPI"],
-    links: [{ label: "Source", href: "https://github.com/eftpmc/reddibase" }],
-    highlight: "ML research project",
-  },
-  {
     title: "Lowcountry Chorale",
     period: "Client work",
     blurb:
       "Website for Lowcountry Chorale in Lady’s Island. Delivered a responsive public-facing site, contact forms, and deployment handoff as part of freelance work for local organizations.",
     stack: ["React", "Next.js", "Node.js", "TypeScript", "TailwindCSS", "WordPress"],
     links: [],
-    highlight: "Client work",
+    highlight: "Client work · site no longer public",
   },
 ];
 
@@ -142,5 +160,6 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["TypeScript", "JavaScript", "Python", "C#", "C++", "Swift", "Kotlin", "Lua"] },
   { group: "Frontend", items: ["React", "React Native", "Next.js", "Expo", "TailwindCSS"] },
   { group: "Backend & Data", items: ["Node.js", "Supabase", "PostgreSQL", "REST APIs"] },
-  { group: "Infra", items: ["Docker", "GitHub Actions", "Vercel", "Linux self-hosting"] },
+  { group: "Infra & self-hosting", items: ["Docker", "Proxmox", "Tailscale", "Linux", "GitHub Actions", "Vercel"] },
+  { group: "ML & data", items: ["PyTorch", "SentenceTransformers", "FAISS", "Hugging Face"] },
 ];
