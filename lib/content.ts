@@ -4,11 +4,10 @@
 export const profile = {
   name: "Zachary Starnes",
   short: "Zack",
-  role: "CS student who ships real software",
-  tagline:
-    "I build cross-platform apps, the servers behind them, and the machines those servers run on.",
+  role: "CS student at Clemson",
+  tagline: "I make apps and run the servers behind them.",
   location: "Clemson, SC",
-  summary: `I have been shipping software to real users since I was twelve, and I have never really stopped. It started with Roblox games in Lua — I built and sold a homestore for 35,000 Robux before I could drive — and turned into a YouTube channel that reached 3,000+ subscribers and over a million views teaching other people to do the same. Since then it has been freelance work for local businesses, a volunteer engineering role where I pair-programmed with a Google engineer, and now Yuzic: an open-source music player on the App Store and Google Play that I maintain for thousands of users and seven contributors. I am a Computer Science student at Clemson, I work mostly in TypeScript across React, React Native, and Node, and I run a small Proxmox and Docker fleet at home because I would rather operate the infrastructure than rent it.`,
+  summary: `I started making Roblox games in Lua when I was twelve and kept going. These days I maintain Yuzic, an open-source music player for iOS and Android, and self-host most of what I use. Mostly TypeScript, some Python.`,
   email: "zackhhi@gmail.com",
   resume: "/zachary-starnes-resume.pdf",
   links: {
@@ -18,11 +17,11 @@ export const profile = {
   },
 };
 
-// Proof points, not dates. Each is verifiable from a link elsewhere on the page.
+// Small, factual, and verifiable from a link on the page.
 export const stats: { label: string; value: string }[] = [
-  { label: "Yuzic, open source", value: "500+ stars" },
-  { label: "Answer-pair dataset built", value: "174K pairs" },
-  { label: "Programming tutorials", value: "1M+ views" },
+  { label: "Yuzic on GitHub", value: "500+ stars" },
+  { label: "Self-hosted services", value: "~30" },
+  { label: "Lua tutorials on YouTube", value: "1M+ views" },
 ];
 
 export type Link = { label: string; href: string };
@@ -44,7 +43,7 @@ export const projects: Project[] = [
     title: "Yuzic",
     period: "2024 — present",
     blurb:
-      "Cross-platform open-source music player for Navidrome, Jellyfin, and Emby servers, used by thousands of people and published on both the App Store and Google Play. I maintain it: reviewing contributions from seven other developers, triaging issues, and running an automated pipeline that cuts and ships signed iOS and Android builds on every version bump. Native audio playback, offline downloads, background mode, and lock-screen controls.",
+      "Open-source music player for Navidrome, Jellyfin, and Emby servers. On the App Store and Google Play. I maintain it and review contributions.",
     stack: ["React Native", "Expo", "TypeScript", "Kotlin", "Swift"],
     links: [
       { label: "App Store", href: "https://apps.apple.com/us/app/yuzic-navidrome-jellyfin/id6740042497" },
@@ -52,14 +51,14 @@ export const projects: Project[] = [
       { label: "Web demo", href: "https://yuzicapp.github.io/yuzic-web/" },
       { label: "Source", href: "https://github.com/yuzicapp/yuzic" },
     ],
-    highlight: "500+ stars · thousands of users · 7 contributors",
+    highlight: "500+ stars · 7 contributors",
   },
   {
     title: "Reddibase",
     period: "2026",
     blurb:
-      "A source-neutral pipeline that turns human-solved discussion threads into answer-extraction datasets. A DistilBERT classifier finds the message in a thread that actually contains the resolved answer, a canonicalization pass extracts the answer itself, and a fine-tuned MiniLM encoder plus a FAISS index retrieves ranked matches from vague, half-remembered descriptions. Built the full path end to end — scraper, training scripts, evaluation harness, FastAPI service, and web UI — and produced a 174,094-pair dataset with both models published to Hugging Face.",
-    stack: ["Python", "PyTorch", "SentenceTransformers", "FAISS", "FastAPI", "Next.js"],
+      "Finds the answer buried in a solved forum thread and makes it searchable from a vague description — the kind where you only half-remember the thing you're looking for.",
+    stack: ["Python", "PyTorch", "FAISS", "FastAPI"],
     links: [
       { label: "Source", href: "https://github.com/eftpmc/reddibase" },
       {
@@ -68,22 +67,22 @@ export const projects: Project[] = [
       },
       { label: "Classifier", href: "https://huggingface.co/eftpmc/reddibase-classifier" },
     ],
-    highlight: "174K confirmed pairs · 2 models on Hugging Face",
+    highlight: "174K pairs · 2 models on Hugging Face",
   },
   {
-    title: "Homelab & self-hosted infrastructure",
+    title: "Homelab",
     period: "Ongoing",
     blurb:
-      "A small production environment I run myself, mostly so that nothing I build has to depend on somebody else's free tier. A Proxmox hypervisor hosts virtualized guests alongside roughly 4TB of storage; about thirty Docker services run on top of it, including the Navidrome and Jellyfin servers that Yuzic connects to. Everything is joined by a private Tailscale mesh across a Mac mini, a Linux box with an RTX 3060 Ti for GPU work, the Proxmox server, and laptop and phone clients — no ports open to the internet.",
-    stack: ["Proxmox", "Docker", "Tailscale", "Linux", "Nginx", "GitHub Actions"],
+      "A hypervisor, about thirty containers, and 4TB of storage at home. It runs the media servers Yuzic connects to.",
+    stack: ["Proxmox", "Docker", "Tailscale", "Linux"],
     links: [],
-    highlight: "~30 services · Proxmox + Tailscale · self-operated",
+    highlight: "~30 services",
   },
   {
     title: "Melodari",
     period: "2024",
     blurb:
-      "Playlist syncing between streaming platforms. Matched tracks across Spotify and YouTube Music catalogs and kept playlists mirrored in both directions, with OAuth for both providers and Supabase for auth and storage.",
+      "Keeps playlists mirrored between Spotify and YouTube Music. Matching songs across two catalogs turned out to be the hard part.",
     stack: ["Next.js", "Supabase", "Spotify API", "YouTube Music API"],
     links: [
       { label: "Live", href: "https://melodari-v2.vercel.app/" },
@@ -94,7 +93,7 @@ export const projects: Project[] = [
     title: "HHIPE",
     period: "2024",
     blurb:
-      "Client website for a Hilton Head parking enforcement company. Built responsive layouts and contact flows, then delivered deployment handoff to the client.",
+      "Site for a parking enforcement company on Hilton Head Island. Built and handed off to the client.",
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     links: [{ label: "Source", href: "https://github.com/eftpmc/hhip-open-source" }],
     highlight: "Client work",
@@ -103,10 +102,10 @@ export const projects: Project[] = [
     title: "Lowcountry Chorale",
     period: "Client work",
     blurb:
-      "Website for Lowcountry Chorale in Lady’s Island. Delivered a responsive public-facing site, contact forms, and deployment handoff as part of freelance work for local organizations.",
-    stack: ["React", "Next.js", "Node.js", "TypeScript", "TailwindCSS", "WordPress"],
+      "Site for a community choir in Lady's Island.",
+    stack: ["Next.js", "TypeScript", "TailwindCSS"],
     links: [],
-    highlight: "Client work · site no longer public",
+    highlight: "Client work",
   },
 ];
 
@@ -122,37 +121,25 @@ export const experience: Experience[] = [
     title: "B.S. Computer Science",
     org: "Clemson University",
     period: "Aug 2024 — Present",
-    points: [
-      "Coursework in data structures, algorithms, software engineering, and systems.",
-      "Focus on design and implementation of software systems.",
-    ],
+    points: ["Data structures, algorithms, software engineering, and systems."],
   },
   {
     title: "Freelance Developer",
     org: "Local businesses — Hilton Head Island, SC",
     period: "2023 — Present",
-    points: [
-      "Built and delivered web and mobile applications for small business clients.",
-      "Owned projects end to end: scoping, design, build, deployment, and handoff.",
-    ],
+    points: ["Websites and apps for small businesses, start to handoff."],
   },
   {
     title: "Game Developer",
     org: "Atlas",
     period: "Oct 2022 — Jun 2023",
-    points: [
-      "Collaborated with another student and a Google engineer on an open-world game in Lua.",
-      "Designed object-oriented systems to improve runtime performance and team ergonomics.",
-    ],
+    points: ["Worked on an open-world Roblox game in Lua with another student and a Google engineer."],
   },
   {
     title: "Content Creator",
     org: "YouTube — Lua & Roblox programming",
     period: "2019 — 2022",
-    points: [
-      "Grew a programming-tutorial channel to 3,000+ subscribers and over 1M views.",
-      "Six years building games in Lua, solo and on teams, before moving to Python, JS, and C++.",
-    ],
+    points: ["Lua and Roblox tutorials. 3,000+ subscribers, over 1M views."],
   },
 ];
 

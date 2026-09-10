@@ -10,7 +10,7 @@ import { profile } from "@/lib/content";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 const SITE_URL = "https://aritools.xyz";
-const description = `Computer Science student at Clemson who has been shipping software to real users since age twelve. Maintainer of Yuzic, an open-source music player on iOS and Android with 500+ stars and thousands of users. I build cross-platform apps, the servers behind them, and the homelab those servers run on.`;
+const description = `Computer Science student at Clemson. I make cross-platform apps and run the servers behind them — maintainer of Yuzic, an open-source music player for iOS and Android.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
