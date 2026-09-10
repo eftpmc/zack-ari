@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 import { profile, stats } from "@/lib/content";
 
 export default function Hero() {
@@ -33,6 +33,13 @@ export default function Hero() {
         >
           <Mail className="h-4 w-4" />
           Get in touch
+        </a>
+        <a
+          href={profile.resume}
+          className="inline-flex items-center gap-2 rounded-lg border border-base-content/20 px-5 py-2.5 font-medium transition-colors hover:border-primary hover:text-primary"
+        >
+          <FileText className="h-4 w-4" />
+          Résumé
         </a>
         <a
           href={profile.links.github}

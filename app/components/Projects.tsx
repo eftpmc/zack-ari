@@ -4,7 +4,7 @@ import ProjectCard from "./ProjectCard";
 import { projects } from "@/lib/content";
 
 export default function Projects({ showAll = false }: { showAll?: boolean }) {
-  const list = showAll ? projects : projects.slice(0, 4);
+  const list = showAll ? projects : projects.slice(0, 5);
 
   return (
     <section id="work" className="section scroll-mt-20">
