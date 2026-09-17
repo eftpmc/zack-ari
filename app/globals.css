@@ -35,16 +35,28 @@ html {
   }
 }
 
-/* Reveal-on-scroll, CSS-only. Elements start hidden and are unhidden by
-   IntersectionObserver adding .is-visible. If JS fails, `.reveal` without the
-   observer would stay hidden, so the observer sets a fallback class on <html>. */
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 600ms ease-out, transform 600ms ease-out;
+/* A continuous rail gives each project room without enclosing it in a card. */
+.project-timeline {
+  @apply ml-2 border-l border-base-content/15;
 }
-.reveal.is-visible,
-.no-js .reveal {
-  opacity: 1;
-  transform: none;
+.timeline-entry {
+  @apply relative grid gap-5 pl-7 md:grid-cols-[9rem_minmax(0,1fr)] md:gap-8 md:pl-10;
+}
+.timeline-entry + .timeline-entry article {
+  @apply border-t border-base-content/10 pt-10;
+}
+.timeline-entry + .timeline-entry .timeline-date {
+  @apply md:pt-12;
+}
+.timeline-date {
+  @apply pt-2 text-sm font-medium text-base-content/55;
+}
+.timeline-dot {
+  @apply absolute -left-[5px] top-3 h-[9px] w-[9px] rounded-full bg-primary ring-[5px] ring-base-200;
+}
+.timeline-entry + .timeline-entry .timeline-dot {
+  @apply md:top-[3.25rem];
+}
+.timeline-entry:last-child article {
+  @apply pb-2;
 }

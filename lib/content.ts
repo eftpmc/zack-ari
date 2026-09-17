@@ -7,7 +7,7 @@ export const profile = {
   role: "CS student at Clemson",
   tagline: "I make apps and run the servers behind them.",
   location: "Clemson, SC",
-  summary: `I started making Roblox games in Lua when I was twelve and kept going. These days I maintain Yuzic, an open-source music player for iOS and Android, and run the Proxmox and Docker setup at home that hosts the servers it connects to. Mostly TypeScript, some Python.`,
+  summary: `I'm Zack, a computer science student at Clemson from Hilton Head Island, SC. I build mobile and web apps. I started programming at twelve, making Roblox games and later teaching Lua on YouTube.`,
   email: "zackhhi@gmail.com",
   resume: "/zachary-starnes-resume.pdf",
   links: {
@@ -34,10 +34,10 @@ export type Project = {
   links: Link[]; // may be empty — nothing is forced to have a URL
   highlight?: string; // short proof point shown as a badge
   featured?: boolean;
+  clients?: { title: string; blurb: string; stack: string[] }[];
 };
 
-// The first four cards are the homepage highlights. The complete list appears
-// on /projects via the existing “View more” link.
+// Curated work, ordered with ongoing projects first, then dated projects.
 export const projects: Project[] = [
   {
     title: "Yuzic",
@@ -81,22 +81,23 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "HHIPE",
-    period: "2024",
-    blurb:
-      "Site for a parking enforcement company on Hilton Head Island. Built and handed off to the client.",
-    stack: ["Next.js", "TailwindCSS", "TypeScript"],
-    links: [{ label: "Source", href: "https://github.com/eftpmc/hhip-open-source" }],
-    highlight: "Client work",
-  },
-  {
-    title: "Lowcountry Chorale",
-    period: "Client work",
-    blurb:
-      "Site for a community choir in Lady's Island.",
-    stack: ["Next.js", "TypeScript", "TailwindCSS"],
+    title: "Client work",
+    period: "Freelance",
+    blurb: "Websites for local businesses and community organizations.",
+    stack: [],
     links: [],
-    highlight: "Client work",
+    clients: [
+      {
+        title: "HHIPE",
+        blurb: "Site for a parking enforcement company on Hilton Head Island. Built and handed off to the client in 2024.",
+        stack: ["Next.js", "TailwindCSS", "TypeScript"],
+      },
+      {
+        title: "Lowcountry Chorale",
+        blurb: "Site for a community choir in Lady's Island.",
+        stack: ["WordPress"],
+      },
+    ],
   },
 ];
 
@@ -140,4 +141,30 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Backend & Data", items: ["Node.js", "Supabase", "PostgreSQL", "REST APIs"] },
   { group: "Infra & self-hosting", items: ["Docker", "Proxmox", "Tailscale", "Linux", "GitHub Actions", "Vercel"] },
   { group: "ML & data", items: ["PyTorch", "SentenceTransformers", "FAISS", "Hugging Face"] },
+];
+
+
+// Selected work and experience, with Yuzic's ongoing development leading.
+export const timeline: (Project & { kind: string })[] = [
+  { ...projects[0], kind: "Open-source project" },
+  { ...projects[1], kind: "Independent project" },
+  { ...projects[2], kind: "Independent project" },
+  { ...projects[3], period: "2023 — present", kind: "Freelance" },
+  {
+    title: "Atlas",
+    period: "2022 — 2023",
+    kind: "Game developer",
+    blurb: experience[2].points[0],
+    stack: ["Lua", "Roblox"],
+    links: [],
+  },
+  {
+    title: "Programming tutorials",
+    period: "2019 — 2022",
+    kind: "Content creator",
+    blurb: "Lua and Roblox programming tutorials on YouTube.",
+    highlight: "3,000+ subscribers · 1M+ views",
+    stack: ["Lua", "Roblox"],
+    links: [],
+  },
 ];

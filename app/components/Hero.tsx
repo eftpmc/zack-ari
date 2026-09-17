@@ -11,7 +11,7 @@ export default function Hero() {
         {profile.name}
       </h1>
 
-      <p className="reveal mt-2 text-3xl font-medium tracking-tight text-primary md:text-4xl">
+      <p className="reveal mt-3 text-lg text-base-content/60 md:text-xl">
         {profile.role}
       </p>
 
@@ -61,11 +61,11 @@ export default function Hero() {
         </a>
       </div>
 
-      <dl className="reveal mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <dl className="reveal mt-12 grid grid-cols-1 gap-6 border-t border-base-content/10 pt-6 sm:grid-cols-3">
         {stats.map((s) => (
-          <div key={s.label} className="card-surface p-5">
+          <div key={s.label} className="flex flex-col-reverse gap-1">
             <dt className="text-sm text-base-content/60">{s.label}</dt>
-            <dd className="mt-1 text-3xl font-semibold tabular-nums tracking-tight text-primary">{s.value}</dd>
+            <dd className="text-xl font-semibold tabular-nums tracking-tight">{s.value}</dd>
           </div>
         ))}
       </dl>
