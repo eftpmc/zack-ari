@@ -34,7 +34,7 @@ export type Project = {
   links: Link[]; // may be empty — nothing is forced to have a URL
   highlight?: string; // short proof point shown as a badge
   featured?: boolean;
-  clients?: { title: string; blurb: string; stack: string[] }[];
+  clients?: { title: string; blurb: string; stack: string[]; href?: string }[];
 };
 
 // Curated work, ordered with ongoing projects first, then dated projects.
@@ -83,10 +83,16 @@ export const projects: Project[] = [
   {
     title: "Client work",
     period: "Freelance",
-    blurb: "Websites for local businesses and community organizations.",
+    blurb: "Websites, SEO, and site improvements for local businesses and community organizations.",
     stack: [],
     links: [],
     clients: [
+      {
+        title: "Sea Pines Pottery",
+        blurb: "SEO, site optimization, and visual polish for a pottery painting studio on Hilton Head Island.",
+        stack: ["SEO", "Site optimization", "UI polish"],
+        href: "https://www.sppottery.com/",
+      },
       {
         title: "HHIPE",
         blurb: "Site for a parking enforcement company on Hilton Head Island. Built and handed off to the client in 2024.",

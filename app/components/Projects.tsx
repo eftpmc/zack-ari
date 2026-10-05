@@ -24,7 +24,13 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
                 <div className="mt-8 space-y-8">
                   {project.clients.map(client => (
                     <section key={client.title}>
-                      <h4 className="text-xl font-semibold tracking-tight">{client.title}</h4>
+                      <h4 className="text-xl font-semibold tracking-tight">
+                        {client.href ? (
+                          <a href={client.href} target="_blank" rel="noopener noreferrer" className="link-underline inline-flex items-center gap-1.5">
+                            {client.title}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                          </a>
+                        ) : client.title}
+                      </h4>
                       <p className="mt-2 leading-relaxed text-base-content/75">{client.blurb}</p>
                       <p className="mt-3 text-xs text-base-content/50">{client.stack.join(" · ")}</p>
                     </section>
