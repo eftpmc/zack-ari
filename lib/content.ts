@@ -19,7 +19,7 @@ export const profile = {
 
 // Small, factual, and verifiable from a link on the page.
 export const stats: { label: string; value: string }[] = [
-  { label: "Yuzic on GitHub", value: "500+ stars" },
+  { label: "Yuzic on GitHub", value: "650+ stars" },
   { label: "Answer pairs in Reddibase", value: "174K" },
   { label: "Lua tutorials on YouTube", value: "1M+ views" },
 ];
@@ -51,7 +51,7 @@ export const projects: Project[] = [
       { label: "Web demo", href: "https://yuzicapp.github.io/yuzic-web/" },
       { label: "Source", href: "https://github.com/yuzicapp/yuzic" },
     ],
-    highlight: "500+ stars · 7 contributors",
+    highlight: "650+ stars · 7 contributors",
   },
   {
     title: "Reddibase",
@@ -122,6 +122,22 @@ export const experience: Experience[] = [
     points: ["Data structures, algorithms, software engineering, and systems."],
   },
   {
+    title: "Software Development Intern",
+    org: "IncWorx Consulting — MeterWorx",
+    period: "Oct 2026 — Present",
+    points: [
+      "Work-order platform for utility meter crews: web portal in production and a React Native field app approved on the App Store.",
+    ],
+  },
+  {
+    title: "Machine Learning Researcher",
+    org: "Watt AI, Clemson University",
+    period: "Jan 2026 — Present",
+    points: [
+      "Predatory-journal detection with PyTorch and Qwen3-8B classifiers: 93% accuracy, 95% recall. Team won First Place in Impact at Clemson HPC Day 2026.",
+    ],
+  },
+  {
     title: "Freelance Developer",
     org: "Local businesses — Hilton Head Island, SC",
     period: "2023 — Present",
@@ -131,7 +147,7 @@ export const experience: Experience[] = [
     title: "Game Developer",
     org: "Atlas",
     period: "Oct 2022 — Jun 2023",
-    points: ["Worked on an open-world Roblox game in Lua with another student and a Google engineer."],
+    points: ["Worked on an open-world Roblox game in Lua with a small team; 10,000+ players."],
   },
   {
     title: "Content Creator",
@@ -150,9 +166,29 @@ export const skills: { group: string; items: string[] }[] = [
 ];
 
 
-// Selected work and experience, with Yuzic's ongoing development leading.
+// Selected work and experience, current work first.
 export const timeline: (Project & { kind: string })[] = [
+  {
+    title: "IncWorx · MeterWorx",
+    period: "Oct 2026 — present",
+    kind: "Software development intern",
+    blurb:
+      "Work-order platform for utility meter crews. I run the web portal in production and built the new React Native field app, now approved on the App Store.",
+    highlight: "Fixed a billing bug the afternoon it was reported, letting a utility client bill 20 held accounts",
+    stack: ["SvelteKit", "React Native", "Expo", "Supabase", "Playwright"],
+    links: [],
+  },
   { ...projects[0], kind: "Open-source project" },
+  {
+    title: "Watt AI",
+    period: "Jan 2026 — present",
+    kind: "Machine learning research · Clemson",
+    blurb:
+      "Detecting predatory academic journals with a PyTorch neural network and Qwen3-8B, trained on 1,765 journal websites.",
+    highlight: "93% accuracy · 95% recall · First Place in Impact, Clemson HPC Day 2026",
+    stack: ["Python", "PyTorch", "Qwen3-8B", "Palmetto HPC"],
+    links: [],
+  },
   { ...projects[1], kind: "Independent project" },
   { ...projects[2], kind: "Independent project" },
   { ...projects[3], period: "2023 — present", kind: "Freelance" },
@@ -160,7 +196,7 @@ export const timeline: (Project & { kind: string })[] = [
     title: "Atlas",
     period: "2022 — 2023",
     kind: "Game developer",
-    blurb: experience[2].points[0],
+    blurb: experience.find(e => e.org === "Atlas")!.points[0],
     stack: ["Lua", "Roblox"],
     links: [],
   },
