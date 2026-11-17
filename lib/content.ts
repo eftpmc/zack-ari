@@ -20,7 +20,7 @@ export const profile = {
 // Small, factual, and verifiable from a link on the page.
 export const stats: { label: string; value: string }[] = [
   { label: "Yuzic on GitHub", value: "650+ stars" },
-  { label: "Answer pairs in Reddibase", value: "174K" },
+  { label: "Answer pairs in Reddibase", value: "169K" },
   { label: "Lua tutorials on YouTube", value: "1M+ views" },
 ];
 
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     links: [
       { label: "App Store", href: "https://apps.apple.com/us/app/yuzic-navidrome-jellyfin/id6740042497" },
       { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.arinora.rawarr" },
-      { label: "Web demo", href: "https://yuzicapp.github.io/yuzic-web/" },
+      { label: "Website", href: "https://yuzicapp.github.io/yuzic-web/" },
       { label: "Source", href: "https://github.com/yuzicapp/yuzic" },
     ],
     highlight: "650+ stars · 7 contributors",
@@ -67,7 +67,7 @@ export const projects: Project[] = [
       },
       { label: "Classifier", href: "https://huggingface.co/eftpmc/reddibase-classifier" },
     ],
-    highlight: "174K pairs · 2 models on Hugging Face",
+    highlight: "169K pairs · 2 models on Hugging Face",
   },
   {
     title: "Melodari",
@@ -173,8 +173,8 @@ export const timeline: (Project & { kind: string })[] = [
     period: "Oct 2026 — present",
     kind: "Software development intern",
     blurb:
-      "Work-order platform for utility meter crews. I run the web portal in production and built the new React Native field app, now approved on the App Store.",
-    highlight: "Fixed a billing bug the afternoon it was reported, letting a utility client bill 20 held accounts",
+      "Work-order platform for utility meter crews. I own the web portal in production, built the new React Native field app, and automated release testing across web and mobile.",
+    highlight: "Portal in production · Field app approved on the App Store · 108 automated release checks",
     stack: ["SvelteKit", "React Native", "Expo", "Supabase", "Playwright"],
     links: [],
   },
