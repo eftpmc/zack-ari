@@ -58,8 +58,9 @@ const navItems = [
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // themeScript sets data-theme before hydration, so a server/client mismatch here is expected.
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

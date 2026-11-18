@@ -35,12 +35,25 @@ html {
   }
 }
 
-/* A continuous rail gives each project room without enclosing it in a card. */
+/* A continuous rail gives each project room without enclosing it in a card.
+   Each entry draws the segment from its dot to the next dot, so the rail
+   starts at the first dot and ends at the last one. Dot centers sit at
+   16.5px (top-3 + half of 9px), or 56.5px for later entries on md+. */
 .project-timeline {
-  @apply ml-2 border-l border-base-content/15;
+  @apply ml-2;
 }
 .timeline-entry {
   @apply relative grid gap-5 pl-7 md:grid-cols-[9rem_minmax(0,1fr)] md:gap-8 md:pl-10;
+}
+.timeline-entry::before {
+  content: "";
+  @apply absolute -left-px top-[16.5px] -bottom-[16.5px] w-px bg-base-content/15 md:-bottom-[56.5px];
+}
+.timeline-entry + .timeline-entry::before {
+  @apply md:top-[56.5px];
+}
+.timeline-entry:last-child::before {
+  content: none;
 }
 .timeline-entry + .timeline-entry article {
   @apply border-t border-base-content/10 pt-10;
@@ -59,4 +72,11 @@ html {
 }
 .timeline-entry:last-child article {
   @apply pb-2;
+}
+
+/* Yuzic coral (#ff7f7f) is too light for text on white, so light-mode
+   text uses a deeper coral (~5.2:1). Fills and borders keep #ff7f7f. */
+[data-theme="light"] .text-primary,
+[data-theme="light"] .hover\:text-primary:hover {
+  color: #c43c3c;
 }

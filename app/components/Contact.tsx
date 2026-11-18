@@ -1,10 +1,9 @@
-import { Mail, Github, Linkedin, Instagram } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { profile } from "@/lib/content";
 
 const socials = [
   { label: "GitHub", href: profile.links.github, Icon: Github },
   { label: "LinkedIn", href: profile.links.linkedin, Icon: Linkedin },
-  { label: "Instagram", href: profile.links.instagram, Icon: Instagram },
 ];
 
 export default function Contact() {

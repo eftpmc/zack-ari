@@ -20,7 +20,21 @@ const config: Config = {
   ],
   daisyui: {
     themes: [
-      'light', 'dark', 'coffee',
+      {
+        light: {
+          ...require('daisyui/src/theming/themes')['light'],
+          primary: '#ff7f7f',
+          'primary-content': '#3a1414',
+        },
+      },
+      {
+        dark: {
+          ...require('daisyui/src/theming/themes')['dark'],
+          primary: '#ff7f7f',
+          'primary-content': '#3a1414',
+        },
+      },
+      'coffee',
     ],
   },
 };

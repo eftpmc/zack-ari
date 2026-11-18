@@ -13,14 +13,13 @@ export const profile = {
   links: {
     github: "https://github.com/eftpmc",
     linkedin: "https://www.linkedin.com/in/zachary-starnes-810932237/",
-    instagram: "https://www.instagram.com/zack_hhi/",
   },
 };
 
 // Small, factual, and verifiable from a link on the page.
 export const stats: { label: string; value: string }[] = [
   { label: "Yuzic on GitHub", value: "650+ stars" },
-  { label: "Answer pairs in Reddibase", value: "169K" },
+  { label: "Clemson HPC Day 2026", value: "1st place" },
   { label: "Lua tutorials on YouTube", value: "1M+ views" },
 ];
 
